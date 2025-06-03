@@ -20,216 +20,305 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+        /* 密码保护样式 */
+        #password-protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #password-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        #password-input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+        #password-submit {
+            background: #1890FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #password-submit:hover {
+            background: #40a9ff;
+        }
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="bg-[#F0F2F5] min-h-screen">
-    <!-- 顶部导航栏 -->
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/banner.jpg" alt="Logo" class="h-10 w-10 rounded-md">
-                <h1 class="text-xl font-bold text-[#262626]">讲书大赛决赛选手信息</h1>
-            </div>
-            <div class="flex items-center">
-                <a href="https://s.tal.com/a/CRwcLU" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
-                    <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    查看决赛回放
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 主内容区域 - 横排三位选手 -->
-    <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- 选手卡片 1: 孙千卉 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
-                <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
-                    <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E5%AD%99%E5%8D%83%E5%8D%89.JPG" alt="孙千卉照片" class="w-full h-full object-cover object-center" />
-                    <div class="absolute top-0 right-0 bg-[#F5222D] text-white px-3 py-1 m-3 rounded-md font-bold">冠军</div>
-                </div>
-                <div class="p-4 flex-1 flex flex-col">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-bold text-[#262626]">孙千卉</h3>
-                        <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.4</span>
-                    </div>
-                    
-                    <div class="space-y-1 text-sm mb-3">
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
-                            <span class="text-[#262626]">376776</span>
-                
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
-                            <span class="text-[#262626]">29岁/女</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
-                            <span class="text-[#262626] truncate-2">智能学习-微信生态运营部-视频号直播组</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
-                            <span class="text-[#262626]">01:11:10-01:27:50</span>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-[#D9D9D9] pt-3 mb-3">
-                        <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
-                        <div class="space-y-2">
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>道具很好，话题和用户的共振很好，如果结合本书展开会更好，伙伴很适合做直播</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>镜头感很好，配上讲义，能讲很多信息出来</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表现力优异，对于书里的内容提炼方法论化，容易落地，对于父母的帮助很大，同时对于内容的导入设置，互动设置，道具设置，都很到位。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>随堂教具准备很充分，开头部分的内容能吸引人。我很希望能和这位老师做一期节目。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>通过问题成功唤起了关注，内容稍微有点焦虑，我们希望给用户的情绪是什么？是焦虑？还是能解决问题？</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
-                    <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=376776&name=孙千卉&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
-                    <a href="https://s.tal.com/a/IgzHpq 《孙千卉-376776  用最好的自己对待最爱的人》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
-                    <a href="https://s.tal.com/a/qRwxia 《孙千卉-376776  用最好的自己对待最爱的人》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
-                </div>
-            </div>
-            
-            <!-- 选手卡片 2: 任冬 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
-                <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
-                    <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E4%BB%BB%E5%86%AC.jpg" alt="任冬照片" class="w-full h-full object-cover object-center" />
-                    <div class="absolute top-0 right-0 bg-[#FAAD14] text-white px-3 py-1 m-3 rounded-md font-bold">亚军</div>
-                </div>
-                <div class="p-4 flex-1 flex flex-col">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-bold text-[#262626]">任冬</h3>
-                        <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.4</span>
-                    </div>
-                    
-                    <div class="space-y-1 text-sm mb-3">
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
-                            <span class="text-[#262626]">372425</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
-                            <span class="text-[#262626]">35岁/男</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
-                            <span class="text-[#262626] truncate-2">在线学习事业部-小班项目部-教学运营组</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
-                            <span class="text-[#262626]">01:40:40-01:57:50</span>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-[#D9D9D9] pt-3 mb-3">
-                        <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
-                        <div class="space-y-2">
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>讲述和书的结合很好，现场的表演也很好</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>感觉讲的很好啊</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表现力一级棒，形式编排也非常有新意，吸睛，案例分享，音乐编排都非常动人，如果可以加上一个可以落地实操的方法论或者沟通模板可能会再次提升内容分享的客户价值。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>形式新颖，开头反常规，故事表现力很强。（晓蔚：针对父母的痛点来分享具体方法）。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>从话题到升华，最后到表演都非常精彩。需要一个更戳认知的观点</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
-                    <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=372425&name=任冬&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
-                    <a href="https://s.tal.com/a/WAsbpz 《任冬-372425  燃爆！用Rap的方式打开亲子沟通密码》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
-                    <a href="https://s.tal.com/a/tkAJ8a 《任冬-372425  说唱+Passion=打开亲子沟通新密码》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
-                </div>
-            </div>
-            
-            <!-- 选手卡片 3: 董流畅 -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
-                <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
-                    <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E8%91%A3%E6%B5%81%E7%95%85.jpg" alt="董流畅照片" class="w-full h-full object-cover object-center" />
-                    <div class="absolute top-0 right-0 bg-[#52C41A] text-white px-3 py-1 m-3 rounded-md font-bold">季军</div>
-                </div>
-                <div class="p-4 flex-1 flex flex-col">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-bold text-[#262626]">董流畅</h3>
-                        <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.2</span>
-                    </div>
-                    
-                    <div class="space-y-1 text-sm mb-3">
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
-                            <span class="text-[#262626]">239365</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
-                            <span class="text-[#262626]">25岁/男</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
-                            <span class="text-[#262626] truncate-2">在线学习事业部-编程科创部-编程产品部</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
-                            <span class="text-[#262626]">02:29:15-02:46:00</span>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-[#D9D9D9] pt-3 mb-3">
-                        <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
-                        <div class="space-y-2">
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>完整呈现了本书的核心内容，互动有反转，挺好。如果聚焦其中一个痛点共振的问题，用场景和故事展开家长简单可行的方法，可能会更好</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>-</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表达力很强，但是叙事过于宏大，设置的三大问题前两个无法快速唤起客户的兴趣和共鸣，对于客户痛点提出的解决方案不清晰和完整。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>表现的逻辑性很强，KT版精心准备。表现很稳。</p>
-                            </div>
-                            <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
-                                <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>表现力很好，内容的重点需要更突出，如果只讲一个认知是什么</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
-                    <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=239365&name=董流畅&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
-                    <a href="https://s.tal.com/a/iwQoFM 《董流畅-239365  无条件的爱让父母和孩子真正解放》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
-                    <a href="https://s.tal.com/a/CIYjR5 《董流畅-239365 独立思考，照亮孩子成长的灯塔》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
-                </div>
-            </div>
+    <!-- 密码保护层 -->
+    <div id="password-protection">
+        <div id="password-form">
+            <h2 class="text-xl font-bold mb-4">请输入访问密码</h2>
+            <input type="password" id="password-input" placeholder="请输入密码" class="w-full px-4 py-2 border rounded-md">
+            <br>
+            <button id="password-submit" class="mt-4">确认</button>
         </div>
     </div>
-    
-    <!-- 页脚 -->
-    <footer class="bg-white py-4 mt-8">
-        <div class="container mx-auto px-4 text-center text-[#8C8C8C] text-sm">
-            <p>© 2025 学而思亲子课堂讲书大赛</p>
-        </div>
-    </footer>
-</body>
-</html>
 
+    <!-- 原有内容 -->
+    <div id="content" class="hidden">
+        <!-- 顶部导航栏 -->
+        <nav class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/banner.jpg" alt="Logo" class="h-10 w-10 rounded-md">
+                    <h1 class="text-xl font-bold text-[#262626]">讲书大赛决赛选手信息</h1>
+                </div>
+                <div class="flex items-center">
+                    <a href="https://s.tal.com/a/CRwcLU" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
+                        <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        查看决赛回放
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 主内容区域 - 横排三位选手 -->
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 选手卡片 1: 孙千卉 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
+                    <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
+                        <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E5%AD%99%E5%8D%83%E5%8D%89.JPG" alt="孙千卉照片" class="w-full h-full object-cover object-center" />
+                        <div class="absolute top-0 right-0 bg-[#F5222D] text-white px-3 py-1 m-3 rounded-md font-bold">冠军</div>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-[#262626]">孙千卉</h3>
+                            <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.4</span>
+                        </div>
+                        
+                        <div class="space-y-1 text-sm mb-3">
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
+                                <span class="text-[#262626]">376776</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
+                                <span class="text-[#262626]">29岁/女</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
+                                <span class="text-[#262626] truncate-2">智能学习-微信生态运营部-视频号直播组</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
+                                <span class="text-[#262626]">01:11:10-01:27:50</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-[#D9D9D9] pt-3 mb-3">
+                            <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
+                            <div class="space-y-2">
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>道具很好，话题和用户的共振很好，如果结合本书展开会更好，伙伴很适合做直播</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>镜头感很好，配上讲义，能讲很多信息出来</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表现力优异，对于书里的内容提炼方法论化，容易落地，对于父母的帮助很大，同时对于内容的导入设置，互动设置，道具设置，都很到位。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>随堂教具准备很充分，开头部分的内容能吸引人。我很希望能和这位老师做一期节目。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>通过问题成功唤起了关注，内容稍微有点焦虑，我们希望给用户的情绪是什么？是焦虑？还是能解决问题？</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
+                        <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=376776&name=孙千卉&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
+                        <a href="https://s.tal.com/a/IgzHpq 《孙千卉-376776  用最好的自己对待最爱的人》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
+                        <a href="https://s.tal.com/a/qRwxia 《孙千卉-376776  用最好的自己对待最爱的人》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
+                    </div>
+                </div>
+                
+                <!-- 选手卡片 2: 任冬 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
+                    <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
+                        <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E4%BB%BB%E5%86%AC.jpg" alt="任冬照片" class="w-full h-full object-cover object-center" />
+                        <div class="absolute top-0 right-0 bg-[#FAAD14] text-white px-3 py-1 m-3 rounded-md font-bold">亚军</div>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-[#262626]">任冬</h3>
+                            <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.4</span>
+                        </div>
+                        
+                        <div class="space-y-1 text-sm mb-3">
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
+                                <span class="text-[#262626]">372425</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
+                                <span class="text-[#262626]">35岁/男</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
+                                <span class="text-[#262626] truncate-2">在线学习事业部-小班项目部-教学运营组</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
+                                <span class="text-[#262626]">01:40:40-01:57:50</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-[#D9D9D9] pt-3 mb-3">
+                            <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
+                            <div class="space-y-2">
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>讲述和书的结合很好，现场的表演也很好</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>感觉讲的很好啊</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表现力一级棒，形式编排也非常有新意，吸睛，案例分享，音乐编排都非常动人，如果可以加上一个可以落地实操的方法论或者沟通模板可能会再次提升内容分享的客户价值。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>形式新颖，开头反常规，故事表现力很强。（晓蔚：针对父母的痛点来分享具体方法）。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>从话题到升华，最后到表演都非常精彩。需要一个更戳认知的观点</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
+                        <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=372425&name=任冬&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
+                        <a href="https://s.tal.com/a/WAsbpz 《任冬-372425  燃爆！用Rap的方式打开亲子沟通密码》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
+                        <a href="https://s.tal.com/a/tkAJ8a 《任冬-372425  说唱+Passion=打开亲子沟通新密码》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
+                    </div>
+                </div>
+                
+                <!-- 选手卡片 3: 董流畅 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover h-full flex flex-col">
+                    <div class="w-full aspect-[3/4] bg-gray-100 overflow-hidden relative flex items-center justify-center">
+                        <img src="https://bpit-public.oss-cn-beijing.aliyuncs.com/fuxingdong/%E8%91%A3%E6%B5%81%E7%95%85.jpg" alt="董流畅照片" class="w-full h-full object-cover object-center" />
+                        <div class="absolute top-0 right-0 bg-[#52C41A] text-white px-3 py-1 m-3 rounded-md font-bold">季军</div>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold text-[#262626]">董流畅</h3>
+                            <span class="bg-[#E6F7FF] text-[#1890FF] px-2 py-1 rounded-full text-xs">评分: 4.2</span>
+                        </div>
+                        
+                        <div class="space-y-1 text-sm mb-3">
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">工号：</span>
+                                <span class="text-[#262626]">239365</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">年龄/性别：</span>
+                                <span class="text-[#262626]">25岁/男</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">部门：</span>
+                                <span class="text-[#262626] truncate-2">在线学习事业部-编程科创部-编程产品部</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-[#8C8C8C] w-16 flex-shrink-0">决赛时段：</span>
+                                <span class="text-[#262626]">02:29:15-02:46:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-[#D9D9D9] pt-3 mb-3">
+                            <h4 class="font-semibold text-[#262626] text-sm mb-2">评委评语:</h4>
+                            <div class="space-y-2">
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">方叔：</span>完整呈现了本书的核心内容，互动有反转，挺好。如果聚焦其中一个痛点共振的问题，用场景和故事展开家长简单可行的方法，可能会更好</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">刘开：</span>-</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">晓蔚：</span>表达力很强，但是叙事过于宏大，设置的三大问题前两个无法快速唤起客户的兴趣和共鸣，对于客户痛点提出的解决方案不清晰和完整。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">Laura：</span>表现的逻辑性很强，KT版精心准备。表现很稳。</p>
+                                </div>
+                                <div class="bg-[#F9F9F9] p-2 rounded-md text-xs">
+                                    <p class="text-[#595959]"><span class="font-semibold text-[#1890FF]">月菲：</span>表现力很好，内容的重点需要更突出，如果只讲一个认知是什么</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-1 mt-3 px-4 pb-4">
+                        <a href="https://sso.zhiyinlou.com/portal/login/630376761?target_workcode=239365&name=董流畅&source=yach&type=open" target="_blank" class="bg-[#1890FF] hover:bg-blue-600 text-white py-1 rounded-md transition-colors duration-300 text-center text-xs">人才一页纸</a>
+                        <a href="https://s.tal.com/a/iwQoFM 《董流畅-239365  无条件的爱让父母和孩子真正解放》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">初赛视频</a>
+                        <a href="https://s.tal.com/a/CIYjR5 《董流畅-239365 独立思考，照亮孩子成长的灯塔》" target="_blank" class="border border-[#1890FF] text-[#1890FF] hover:bg-blue-50 py-1 rounded-md transition-colors duration-300 text-center text-xs">复赛视频</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="bg-white py-4 mt-8">
+            <div class="container mx-auto px-4 text-center text-[#8C8C8C] text-sm">
+                <p>© 2025 学而思亲子课堂讲书大赛</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 密码保护功能
+        const password = "123456"; // 设置访问密码
+        const content = document.getElementById('content');
+        const protection = document.getElementById('password-protection');
+        const passwordInput = document.getElementById('password-input');
+        const submitButton = document.getElementById('password-submit');
+
+        // 检查是否已经通过验证
+        if (localStorage.getItem('authenticated') === 'true') {
+            showContent();
+        }
+
+        submitButton.addEventListener('click', checkPassword);
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            if (passwordInput.value === password) {
+                localStorage.setItem('authenticated', 'true');
+                showContent();
+            } else {
+                alert('密码错误，请重试！');
+                passwordInput.value = '';
+            }
+        }
+
+        function showContent() {
+            protection.classList.add('hidden');
+            content.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html> 
